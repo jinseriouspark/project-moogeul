@@ -1,12 +1,12 @@
 # Project Moogeul
 
-- Youtube Link[https://www.youtube.com/watch?v=AZV8ilgvDL0]
-- Huggingface Space[https://huggingface.co/spaces/seriouspark/project-moogeul?logs=build]
+[Youtube](https://www.youtube.com/watch?v=AZV8ilgvDL0)
+[Huggingface Space](https://huggingface.co/spaces/seriouspark/project-moogeul)
 
 
 ## 서비스 요약
-글쓰기 소재를 제안해주는 챗봇. 입력된 글 속 감성을 분석하여 결과물로 제공하는 서비스
-Suggest writing topic and report sentimental analysis from user's writings. 
+- 글쓰기 소재를 제안해주는 챗봇. 입력된 글 속 감성을 분석하여 결과물로 제공하는 서비스
+- Suggest writing topic and report sentimental analysis from user's writings. 
 
 
 ```mermaid
@@ -38,9 +38,8 @@ graph TD
 | 내용 | 필요 데이터셋 | 필요 모델링 | 기타 필요항목 |
 | --- | --- | --- | --- |
 | 1. 단어 입력 시 에세이 1편을 쓸 수 있는 ‘글쓰기’ 공간 제공 | 네이버 한국어 사전 | - | gradio 대시보드 |
-| 2. 에세이 내 문장 분류 | 한국어 감정분석 자료 58000여건 | xlm-roberta | - |
-| 3. 문장 별 감정 라벨 반환 | 한국어 감정분석 자료 58000여건 + 라벨 단순화 (60개 → 6개) | Bert Classifier |  |
+| 2. 에세이 내 문장 분류 후 감정 관련 Answer 추출 | 한국어 감정분석 자료 58000여건 | xlm-roberta | - |
+| 3. 문장 별 감정 라벨 분류 | 한국어 감정분석 자료 58000여건 + 라벨 단순화 (60개 → 6개) | Bert Classifier |  |
 | 4. 문장 내 명사, 형용사를 konlpy 활용하여 추출 | 한국어 감정분석 자료 58000여건 | konlpy Kkma | huggingface - pos tagger 검토 |
 | 5. 명사, 형용사와 감정 라벨을 pair 로 만들어 빈도 집계 | - | - | - |
-| 6. 해당 빈도 기반의 리뷰 제공 (저자 & 에세이리스트 수집) | yest24 칼럼 수집 
-(은유, 정이현, 듀나, 총     건) | - | selenium / request / BeutifulSoup |
+| 6. 해당 빈도 기반의 리뷰 제공 (저자 & 에세이리스트 수집) | yest24 칼럼 수집 | - | selenium / request / BeutifulSoup |
